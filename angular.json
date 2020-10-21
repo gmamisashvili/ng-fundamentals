@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,7 +91,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/ngf-bootstrap/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           }
         },
         "lint": {
