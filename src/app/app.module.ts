@@ -18,6 +18,7 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { AuthService } from './events/user/auth.service';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,10 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     EventListResolver,
     AuthService,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, ReactiveFormsModule],
   bootstrap: [EventsAppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty)
