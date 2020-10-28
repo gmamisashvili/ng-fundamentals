@@ -5,28 +5,34 @@ import { EventService } from './event.service';
   templateUrl: `./create-event.component.html`,
   styles: [
     `
-  em{float:right; color:#e05C65; padding-left:10px}
-  .error input{ background-color:#e05C65 }
-  .error::placeholder{color:#999}
-  `,
+      em {
+        float: right;
+        color: #e05c65;
+        padding-left: 10px;
+      }
+      .error input {
+        background-color: #e05c65;
+      }
+      .error::placeholder {
+        color: #999;
+      }
+    `,
   ],
 })
 export class CreateEventComponent {
   newEvent;
   isDirty: boolean = true;
-  constructor(private router: Router, private eventService: EventService) { }
+  constructor(private router: Router, private eventService: EventService) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   cancel() {
     this.router.navigate(['/events']);
   }
 
   saveEvent(formValues) {
-    this.eventService.saveEvent(formValues)
-    this.isDirty = false
+    this.eventService.saveEvent(formValues);
+    this.isDirty = false;
     this.router.navigate(['/events']);
   }
 }
