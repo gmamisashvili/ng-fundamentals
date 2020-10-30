@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/index';
 import { SessionListComponent } from './events/event-details/index';
 import { CollapsableWellComponent } from './common/collapsable-well.component';
+import { DurationPipe } from './events/shared/index';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CollapsableWellComponent } from './common/collapsable-well.component';
     CreateSessionComponent,
     SessionListComponent,
     CollapsableWellComponent,
+    DurationPipe,
   ],
   providers: [
     EventService,
@@ -52,7 +54,7 @@ import { CollapsableWellComponent } from './common/collapsable-well.component';
   ],
   bootstrap: [EventsAppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty)

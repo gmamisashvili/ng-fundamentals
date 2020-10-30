@@ -23,10 +23,12 @@ import { IEvent, ISession } from '../shared/event.model';
 export class EventDetailsComponent {
   event: IEvent;
   addMode: boolean;
+  filterBy: string = 'all'
+  sortBy: string = 'votes'
   constructor(
     private EventService: EventService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.event = this.EventService.getEvent(+this.route.snapshot.params['id']);
