@@ -12,7 +12,14 @@ import {
 
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import {
+  TOASTR_TOKEN,
+  Toastr,
+  CollapsableWellComponent,
+  SimpleModalComponent,
+  ModalTriggerDirective,
+  JQ_SERVICE,
+} from './common/index';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
@@ -21,8 +28,10 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/index';
 import { SessionListComponent } from './events/event-details/index';
-import { CollapsableWellComponent } from './common/collapsable-well.component';
 import { DurationPipe } from './events/shared/index';
+
+let toastr: Toastr = window['toastr'];
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -36,11 +45,14 @@ import { DurationPipe } from './events/shared/index';
     CreateSessionComponent,
     SessionListComponent,
     CollapsableWellComponent,
+    SimpleModalComponent,
     DurationPipe,
+    ModalTriggerDirective,
   ],
   providers: [
     EventService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQ_SERVICE, useValue: jQuery },
     EventRouteActivator,
     { provide: 'CanDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver,
@@ -54,7 +66,7 @@ import { DurationPipe } from './events/shared/index';
   ],
   bootstrap: [EventsAppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty)
