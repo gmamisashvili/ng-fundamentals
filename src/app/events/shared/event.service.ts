@@ -20,7 +20,7 @@ export class EventService {
       .pipe(catchError(this.handleError<IEvent>('getEvent')));
   }
   saveEvent(event) {
-    let options = {
+    const options = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
     return this.http
@@ -28,7 +28,7 @@ export class EventService {
       .pipe(catchError(this.handleError<IEvent>('getEvent')));
   }
   updateEvent(event) {
-    let index = EVENTS.findIndex((x) => (x.id = event.id));
+    const index = EVENTS.findIndex((x) => (x.id = event.id));
     EVENTS[index] = event;
   }
 
@@ -251,7 +251,7 @@ const EVENTS: IEvent[] = [
       },
       {
         id: 6,
-        name: "These aren't the directives you're looking for",
+        name: 'These aren\'t the directives you\'re looking for',
         presenter: 'John Papa',
         duration: 2,
         level: 'Intermediate',

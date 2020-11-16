@@ -35,8 +35,11 @@ import { DurationPipe } from './events/shared/index';
 
 import { HttpClientModule } from '@angular/common/http';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+declare const window: any;
+
+const toastr: Toastr = window.toastr;
+const jQuery = window.$;
+
 
 @NgModule({
   declarations: [
@@ -79,6 +82,6 @@ export class AppModule {}
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty)
-    return window.confirm("you didn't save this event, you want to leave?");
+    return window.confirm('you didn\'t save this event, you want to leave?');
   return true;
 }

@@ -59,7 +59,7 @@ export class CreateSessionComponent implements OnInit {
   // }
 
   createNewSession(formValues) {
-    let session: ISession = {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       duration: +formValues.duration,

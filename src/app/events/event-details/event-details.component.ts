@@ -23,8 +23,8 @@ import { IEvent, ISession } from '../shared/event.model';
 export class EventDetailsComponent {
   event: IEvent;
   addMode: boolean;
-  filterBy: string = 'all';
-  sortBy: string = 'votes';
+  filterBy = 'all';
+  sortBy = 'votes';
   constructor(
     private EventService: EventService,
     private route: ActivatedRoute
@@ -32,7 +32,7 @@ export class EventDetailsComponent {
 
   ngOnInit() {
     this.route.data.forEach((data) => {
-      this.event = data['event'];
+      this.event = data.event;
       this.addMode = false;
     });
   }
